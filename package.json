@@ -19,5 +19,9 @@
     "beta",
     "in-development",
     "unstable"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mishka122/quick-cast.git"
+  }
 }
