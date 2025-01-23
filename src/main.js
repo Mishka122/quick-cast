@@ -1,31 +1,49 @@
-import { Slider } from "./slider.js";
-import { Accordion } from "./accordion.js";
-
 class Cast {
-  constructor(type, selector, options) {
-    this.type = type;
-    this.selector = selector;
-    this.options = options;
+  constructor(type, options) {
+    if (!type) {
+      console.warn("Warning: 'type' parameter is missing.");
+      return;
+    }
 
+    if (!options || (!options.target && type !== "settings")) {
+      console.warn("Warning: 'target' parameter is missing.");
+      return;
+    }
+
+    this.type = type;
+    this.options = { ...options };
     this.init();
   }
 
-  init() {
+  async init() {
     switch (this.type) {
-      case "slider":
-        new Slider(this.selector, this.options);
+      case "slider": {
+        const { Slider } = await import("./animations/slider.js");
+        new Slider(this.options);
         break;
-      case "swiper":
-        new Swiper(this.selector, this.options);
+      }
+
+      case "accordion": {
+        const { Accordion } = await import("./animations/accordion.js");
+        new Accordion(this.options);
         break;
-      case "accordion":
-        new Accordion(this.selector, this.options);
+      }
+
+      case "settings": {
+        if (this.options.tabletMax && this.options.mobileMax) {
+          console.log(this.options.mobileMax, this.options.tabletMax);
+
+          const { setDeviceType } = await import("./utils/devices.js");
+          setDeviceType(this.options.mobileMax, this.options.tabletMax);
+        }
         break;
+      }
+
       default:
-        throw new Error(`Unsupported type: ${this.type}`);
+        console.warn(`Warning: Unsupported type: ${this.type}`);
+        return;
     }
   }
 }
 
 window.Cast = Cast;
-//const swiperFirst = new Cast("swiper", ".swiper", { duration: 1, devices: 'desktop' });

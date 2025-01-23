@@ -4,6 +4,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
     "rollup": "^4.30.1"
   },
   "scripts": {
@@ -11,11 +12,16 @@
   },
   "name": "quick-cast",
   "version": "1.0.2",
-  "description": "A lightweight animation library built on top of GSAP, designed to make creating complex structural animations quick and easy. With an intuitive API and seamless GSAP integration, Quick-Cast simplifies advanced animation workflows for developers. (Still in development 🚧)",
+  "description": "A lightweight animation library built on top of GSAP, designed to make creating complex structural animations quick and easy. With an intuitive API, Quick-Cast simplifies advanced animation workflows for developers. (Still in development 🚧)",
   "main": "dist/main.js",
   "author": "Misha Belov",
   "license": "ISC",
   "keywords": [
+    "gsap",
+    "javascript",
+    "animation",
+    "slider",
+    "accordion",
     "beta",
     "in-development",
     "unstable"
