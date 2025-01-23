@@ -11,7 +11,7 @@
     "build": "rollup -c"
   },
   "name": "quick-cast",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "A lightweight animation library built on top of GSAP, designed to make creating complex structural animations quick and easy. With an intuitive API, Quick-Cast simplifies advanced animation workflows for developers. (Still in development 🚧)",
   "main": "dist/main.js",
   "author": "Misha Belov",
